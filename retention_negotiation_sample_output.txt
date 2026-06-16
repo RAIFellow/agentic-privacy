@@ -1,0 +1,14 @@
+=== Starting Autonomous Data Retention Negotiation ===
+PrivacyGuard_Agent (Provider) Preferred: 30 days
+AnalyticsMax_Agent (Consumer) Preferred: 180 days
+------------------------------------------------------------
+Round 1 | AnalyticsMax_Agent opens the negotiation demanding: 180 days.
+Round 2 | PrivacyGuard_Agent rejects and counters with: 36 days.
+Round 3 | AnalyticsMax_Agent rejects and counters with: 171 days.
+Round 4 | PrivacyGuard_Agent rejects and counters with: 46 days.
+Round 5 | AnalyticsMax_Agent rejects and counters with: 158 days.
+Round 6 | PrivacyGuard_Agent rejects and counters with: 53 days.
+Round 7 | AnalyticsMax_Agent rejects and counters with: 150 days.
+Round 8 | PrivacyGuard_Agent rejects and counters with: 67 days.
+>> SUCCESS: AnalyticsMax_Agent accepted the offer of 67 days!
+Process finished with exit code 0

@@ -1,0 +1,44 @@
+[AI Agent]: Parsing natural language text via Gemini...
+
+=== SUCCESSFUL PARSING ===
+The LLM translated your text into the following structured JSON configuration:
+{
+  "rules": [
+    {
+      "data_type": "date_of_birth",
+      "sharing_level": "partial_restricted",
+      "trusted_keywords": [
+        ".gov",
+        "flight",
+        "airline"
+      ],
+      "fallback_behavior": "prompt_user"
+    },
+    {
+      "data_type": "address",
+      "sharing_level": "partial_restricted",
+      "trusted_keywords": [],
+      "fallback_behavior": "prompt_user"
+    },
+    {
+      "data_type": "phone_number",
+      "sharing_level": "strict_deny",
+      "trusted_keywords": [],
+      "fallback_behavior": "prompt_user"
+    }
+  ]
+}
+============================================================
+[Incoming Request] 'irs.gov' wants access to your 'date_of_birth'
+✅ [APPROVED - TRUSTED] Shared full data with irs.gov: {'full': '1995-08-24', 'partial': '1995 (Year Only)'}
+
+[Incoming Request] 'facebook.com' wants access to your 'date_of_birth'
+⚠️ [PROMPT REQUIRED] facebook.com wants full data. Default policy allows only partial data (1995 (Year Only)). Prompting user to override or confirm.
+
+[Incoming Request] 'ubereats.com' wants access to your 'address'
+⚠️ [PROMPT REQUIRED] ubereats.com wants full data. Default policy allows only partial data (10001 (Zip Only)). Prompting user to override or confirm.
+
+[Incoming Request] 'spam-marketing.net' wants access to your 'phone_number'
+🚨 [PROMPT REQUIRED] spam-marketing.net requested phone_number. Policy is strict deny. Asking user for explicit confirmation.
+
+Process finished with exit code 0
