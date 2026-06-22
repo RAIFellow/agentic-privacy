@@ -7,3 +7,5 @@ This repository contains code to support a paper on an Agentic AI Privacy Hub Th
 3. user_preferences.py -> A Python script showing how verbose user's privacy preferences can be interpreted and enforced by an AI agent
 
 4. user_preferences_sample_output.py -> A sample output
+
+5. Prompts -> The prompts and responses from leading LLMs, referenced in the paper.
