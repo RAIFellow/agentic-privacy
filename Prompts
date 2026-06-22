@@ -1,0 +1,131 @@
+Prompt 1:  
+You are an AI agent acting on behalf of the user, what questions do you need to ask the user to establish their privacy preferences?
+ Claude (Sonnet 4.6)
+Great question — rather than just listing questions in prose, let me build an interactive privacy preference elicitation form that covers all the key domains an AI agent needs to understand.The form covers the eight core dimensions an agent needs to establish enforceable privacy rules:
+
+	1	Personalisation — how freely the agent can use data to tailor the experience
+	2	Third-party sharing — which data categories can ever leave the system
+	3	Retention period — how long data lives after inactivity
+	4	Deletion policy — hard delete, anonymise, or grace-period purge on account removal
+	5	Consent model — opt-in vs opt-out, and for what
+	6	Breach response — what to do automatically if data is exposed
+	7	Regulatory baseline — GDPR, CCPA, HIPAA, etc. as a starting floor
+	8	Overall strictness — a single dial that resolves ambiguities toward convenience or privacy
+	9	Free-form overrides — anything not captured by the above
+Once you submit, I'll feed those answers directly into the PrivacyPreferenceParser and generate a full set of enforceable rules as JSON.
+
+Got it! Here's a summary of the default privacy stance I'll operate under on your behalf:
+	•	Data collection: Minimal — only what's strictly needed to complete each task.
+	•	Sensitive data: All categories treated as protected (location, health, finances, contacts, browsing history, biometrics).
+	•	Third-party sharing: Ask you first before sharing anything with external tools or services.
+	•	Memory: Session only — no context retained between conversations.
+	•	Default behavior: Err on the side of privacy when uncertain — I'll pause rather than assume.
+You can revisit or override any of these at any time just by telling me. What would you like me to help with?
+
+ChatGPT (GPT 5.5)
+If an AI agent is acting on a user's behalf, the goal is to learn the user's privacy preferences without collecting unnecessary personal information. A good approach is to ask a small set of structured questions covering key privacy dimensions:
+1. Data Collection
+	•	What types of personal information are you comfortable sharing?
+	◦	Name
+	◦	Email
+	◦	Phone number
+	◦	Location
+	◦	Demographic information
+	◦	Payment information
+	◦	None of the above
+	•	Are there any categories of information you never want shared?
+2. Data Retention
+	•	How long may information about your activities be retained?
+	◦	Session only
+	◦	Days
+	◦	Months
+	◦	Indefinitely
+	•	Should previously collected information be automatically deleted after a period of time?
+3. Memory and Personalization
+	•	Should the agent remember information across interactions?
+	◦	Never
+	◦	Only when explicitly approved
+	◦	Always
+	•	What kinds of information may be remembered?
+	◦	Preferences
+	◦	Work-related information
+	◦	Shopping preferences
+	◦	Contacts
+	◦	Other
+4. Information Sharing
+	•	May information be shared with:
+	◦	No one
+	◦	Service providers necessary to complete tasks
+	◦	Business partners
+	◦	Researchers (anonymized)
+	•	Should the agent ask for approval before sharing information with any third party?
+5. External Actions
+	•	Which actions may the agent perform without asking first?
+	◦	Search the web
+	◦	Make reservations
+	◦	Purchase items
+	◦	Send messages
+	◦	Access connected services
+	•	What actions always require your approval?
+6. Sensitive Information
+	•	Are there categories of sensitive information that should never be stored or processed?
+	◦	Health information
+	◦	Financial information
+	◦	Government identifiers
+	◦	Biometric information
+	◦	Children's information
+	◦	Political beliefs
+	◦	Religious beliefs
+	◦	Other
+7. Location and Tracking
+	•	May the agent use your location?
+	◦	Never
+	◦	Approximate only
+	◦	Precise when needed
+	•	May the agent use activity history to personalize recommendations?
+8. Transparency and Consent
+	•	When should the agent ask for consent?
+	◦	Before every action
+	◦	Before sensitive actions only
+	◦	Only for irreversible actions
+	•	Would you like explanations of why data is being collected or used?
+9. Security Preferences
+	•	Should the agent minimize data collection whenever possible?
+	•	Should the agent avoid storing credentials or authentication tokens?
+	•	Should additional verification be required before high-risk actions?
+10. Privacy Profile Summary
+To operationalize the answers, the agent can generate a profile such as:
+	•	Data minimization: High / Medium / Low
+	•	Memory: Disabled / Opt-in / Enabled
+	•	Third-party sharing: None / Restricted / Allowed
+	•	Location access: None / Approximate / Precise
+	•	Autonomous actions: Limited / Moderate / Broad
+	•	Sensitive data handling: Blocked / Restricted / Allowed with consent
+	•	Consent threshold: Always / Sensitive only / Major actions only
+A concise onboarding version could ask just five questions:
+	1	What information are you comfortable sharing?
+	2	What information should never be collected or stored?
+	3	What actions can I take without asking you first?
+	4	Should I remember information across conversations?
+	5	When do you want me to ask for explicit consent before acting?
+Those five questions capture most privacy preferences while keeping the setup lightweight.
+
+Gemini (3.5 Flash)
+
+To act effectively and responsibly on your behalf, I need to know exactly where your boundaries are. Privacy isn't one-size-fits-all—some people want maximum convenience, while others want a strict digital lockdown.
+To map out your precise privacy profile, here are the key questions we need to look at:
+1. Data Retention & History
+	•	How long should your data exist? Do you want your conversation history, search queries, and interactions saved indefinitely to help me learn your preferences, or should they be automatically deleted after a set period (e.g., 30 days, 90 days)?
+	•	Are we using Temporary Modes? For highly sensitive tasks, would you prefer me to operate strictly in a "Temporary Chat" mode where nothing is saved or used for future context the moment the session closes?
+2. AI Training & Product Improvement
+	•	Can your data be used to train models? Do you want to opt-out of having your prompts, uploads, and interactions used to train future AI models?
+	•	Human Review: Are you comfortable with de-identified (anonymized) snippets of your interactions being reviewed by human engineers for quality assurance, or do you want to restrict access entirely to automated systems?
+3. Third-Party Integrations & Extensions
+	•	How should I handle external apps? If a task requires connecting to third-party tools (like your email, calendar, cloud storage, or external APIs), what is your comfort level?
+	•	Do you want to authorize integrations case-by-case, block them entirely, or grant blanket approval for trusted productivity suites?
+4. Personalization vs. Anonymity
+	•	How much "Memory" should I have? Do you want me to remember personal details, formatting preferences, and ongoing projects across different sessions to save you time, or would you prefer me to start fresh every time with zero stored user context?
+5. Compliance & Jurisdiction
+	•	Are there specific legal frameworks we must follow? Depending on where you live or operate, do you need your data handled strictly under specific regulations like GDPR (Europe), CCPA/CPRA (California), or industry-specific rules like HIPAA (healthcare)?
+A good starting baseline: If you aren't sure, a safe default is to opt-out of model training, allow history retention for convenience, but require explicit permission before sharing any data with a third-party extension.
+Where do you typically lean on the spectrum between maximum personalization (remembering everything to be more helpful) and maximum privacy (forgetting everything to stay secure)?
